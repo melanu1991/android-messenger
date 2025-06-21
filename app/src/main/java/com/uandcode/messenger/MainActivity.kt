@@ -1,4 +1,4 @@
-package com.example.messenger
+package com.uandcode.messenger
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,11 +11,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.messenger.ui.theme.MessengerTheme
+import com.uandcode.messenger.ui.theme.MessengerTheme
+import com.uandcode.templates.domain.FeatureDomain
+import com.uandcode.templates.kotlin_library.TestKotlinLib
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        TestKotlinLib()
+        FeatureDomain()
+
         enableEdgeToEdge()
         setContent {
             MessengerTheme {

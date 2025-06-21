@@ -21,3 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Messenger"
 include(":app")
+include(":templates:android-library")
+include(":templates:kotlin-library")
+include(":templates:feature:presentation")
+include(":templates:feature:domain")

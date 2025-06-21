@@ -1,4 +1,4 @@
-package com.example.messenger
+package com.uandcode.templates.android_library
 
 import org.junit.Test
 

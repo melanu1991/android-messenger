@@ -1,4 +1,4 @@
-package com.example.messenger.ui.theme
+package com.uandcode.messenger.ui.theme
 
 import android.app.Activity
 import android.os.Build
