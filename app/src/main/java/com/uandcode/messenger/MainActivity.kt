@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.uandcode.messenger.core.essentials.MyClass
+import com.uandcode.messenger.core.essentials.logger.Logger
 import com.uandcode.messenger.ui.theme.MessengerTheme
 import com.uandcode.templates.domain.FeatureDomain
 import com.uandcode.templates.kotlin_library.TestKotlinLib
@@ -20,9 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        TestKotlinLib()
-        FeatureDomain()
-        MyClass()
+        Logger.d("Hello from MainActivity!")
 
         enableEdgeToEdge()
         setContent {

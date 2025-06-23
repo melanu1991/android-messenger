@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":templates:feature:domain"))
     implementation(project(":templates:feature:presentation"))
     implementation(project(":core:essentials"))
+    implementation(project(":core:common:android"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
