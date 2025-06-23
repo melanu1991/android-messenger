@@ -17,6 +17,7 @@ dependencies {
     implementation(project(":templates:kotlin-library"))
     implementation(project(":templates:feature:domain"))
     implementation(project(":templates:feature:presentation"))
+    implementation(project(":core:essentials"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
