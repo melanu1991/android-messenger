@@ -11,17 +11,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.uandcode.messenger.core.essentials.MyClass
 import com.uandcode.messenger.core.essentials.logger.Logger
 import com.uandcode.messenger.ui.theme.MessengerTheme
-import com.uandcode.templates.domain.FeatureDomain
-import com.uandcode.templates.kotlin_library.TestKotlinLib
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var logger: Logger
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         Logger.d("Hello from MainActivity!")
+        logger.d("Hello from MainActivity with injected logger!")
 
         enableEdgeToEdge()
         setContent {
