@@ -1,8 +1,8 @@
 package com.uandcode.messenger.common.android
 
 import android.content.Context
+import com.uandcode.messenger.core.essentials.resources.CoreStringProvider
 import com.uandcode.messenger.core.essentials.resources.StringId
-import com.uandcode.messenger.core.essentials.resources.StringProvider
 import com.uandcode.messenger.core.essentials.resources.StringResources
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -35,6 +35,10 @@ class StringResourcesV2Impl @Inject constructor(
     }
 }
 
-class AndroidStringProvider @Inject constructor(
+class CoreStringProviderImpl @Inject constructor(
     @ApplicationContext private val context: Context
-): StringProvider
+): CoreStringProvider {
+    override val connectionErrorMessage: String = context.getString(R.string.connection_error)
+    override val unknownErrorMessage: String = context.getString(R.string.unknown_error_message)
+    override fun backendErrorMessage(code: Int, message: String): String = context.getString(R.string.backend_error_message, code, message)
+}

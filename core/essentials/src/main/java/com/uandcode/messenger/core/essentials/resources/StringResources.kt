@@ -18,4 +18,8 @@ interface StringResourcesV2 {
 
 interface StringProvider
 
-interface CoreExceptionStringProvider: StringProvider
+interface CoreStringProvider: StringProvider {
+    val connectionErrorMessage: String
+    val unknownErrorMessage: String
+    fun backendErrorMessage(code: Int, message: String): String
+}

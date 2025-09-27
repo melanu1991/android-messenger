@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.uandcode.messenger.core.essentials.exceptions.ConnectionException
+import com.uandcode.messenger.core.essentials.exceptions.mapper.ExceptionToMessageMapper
 import com.uandcode.messenger.core.essentials.logger.Logger
 import com.uandcode.messenger.ui.theme.MessengerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,10 +23,15 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var logger: Logger
 
+    @Inject
+    lateinit var exceptionToMessageMapper: ExceptionToMessageMapper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Logger.d("Hello from MainActivity!")
+        val message1 = exceptionToMessageMapper.getLocalizedMessage(ConnectionException())
+
+        Logger.d(message1)
         logger.d("Hello from MainActivity with injected logger!")
 
         enableEdgeToEdge()
