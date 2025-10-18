@@ -1,7 +1,9 @@
 package com.uandcode.messenger.common.android.di
 
+import com.uandcode.messenger.common.android.AndroidExceptionHandler
 import com.uandcode.messenger.common.android.AndroidLogger
 import com.uandcode.messenger.common.android.CoreStringProviderImpl
+import com.uandcode.messenger.core.essentials.exceptions.handler.ExceptionHandler
 import com.uandcode.messenger.core.essentials.exceptions.mapper.DefaultExceptionToMessageMapper
 import com.uandcode.messenger.core.essentials.exceptions.mapper.ExceptionToMessageMapper
 import com.uandcode.messenger.core.essentials.logger.Logger

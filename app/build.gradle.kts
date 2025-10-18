@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":templates:feature:presentation"))
     implementation(project(":core:essentials"))
     implementation(project(":core:common:android"))
+    implementation(project(":features:init:presentation"))
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
