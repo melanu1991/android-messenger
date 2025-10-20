@@ -32,6 +32,10 @@
             <option value="$PROJECT_DIR$/features/init" />
             <option value="$PROJECT_DIR$/features/init/domain" />
             <option value="$PROJECT_DIR$/features/init/presentation" />
+            <option value="$PROJECT_DIR$/features/signin" />
+            <option value="$PROJECT_DIR$/features/signin/domain" />
+            <option value="$PROJECT_DIR$/features/signin/presentation" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/templates" />
             <option value="$PROJECT_DIR$/templates/android-library" />
             <option value="$PROJECT_DIR$/templates/feature" />

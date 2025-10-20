@@ -22,6 +22,7 @@ dependencies {
     implementation(project(":core:essentials"))
     implementation(project(":core:common:android"))
     implementation(project(":features:init:presentation"))
+    implementation(project(":navigation"))
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.uandcode.messenger.common.android.AndroidExceptionHandler
@@ -14,6 +12,7 @@ import com.uandcode.messenger.core.essentials.exceptions.ConnectionException
 import com.uandcode.messenger.core.essentials.exceptions.mapper.ExceptionToMessageMapper
 import com.uandcode.messenger.core.essentials.logger.Logger
 import com.uandcode.messenger.features.init.InitScreen
+import com.uandcode.messenger.navigation.AppNavHost
 import com.uandcode.messenger.ui.theme.MessengerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -32,24 +31,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val message1 = exceptionToMessageMapper.getLocalizedMessage(ConnectionException())
-
-        Logger.d(message1)
-        logger.d("Hello from MainActivity with injected logger!")
-
         enableEdgeToEdge()
         setContent {
             MessengerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    App(modifier = Modifier.fillMaxSize().padding(innerPadding))
-                    exceptionHandler.ErrorDialog()
-                }
+                AppNavHost(Modifier.fillMaxSize())
+                exceptionHandler.ErrorDialog()
+//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    App(modifier = Modifier.fillMaxSize().padding(innerPadding))
+//                    exceptionHandler.ErrorDialog()
+//                }
             }
         }
     }
-}
-
-@Composable
-fun App(modifier: Modifier) {
-    InitScreen()
 }

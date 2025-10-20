@@ -53,6 +53,7 @@ class GetKeyFeatureUseCase @Inject constructor() {
 class InitViewModel @Inject constructor(
     private val getKeyFeatureUseCase: GetKeyFeatureUseCase,
     private val isAuthorizedUseCase: IsAuthorizedUseCase,
+    private val router: InitRouter,
     private val exceptionHandler: ExceptionHandler
 ): ViewModel() {
 //    val stateFlow: StateFlow<Container<State>> = getKeyFeatureUseCase
@@ -76,6 +77,9 @@ class InitViewModel @Inject constructor(
     }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(1000), Container.Pending)
 
+//    private val _effectsFlow = MutableStateFlow(Effects())
+//    val effectsFlow: StateFlow<Effects> = _effectsFlow
+
     fun letsGo()  {
         viewModelScope.launch {
             try {
@@ -84,7 +88,8 @@ class InitViewModel @Inject constructor(
                 if (isAuthorized) {
 
                 } else {
-
+                    router.launchSignIn()
+//                    _effectsFlow.update { it.copy(launchSignInScreen = Unit) }
                 }
             } catch (e: Exception) {
                 ensureActive()
@@ -93,6 +98,14 @@ class InitViewModel @Inject constructor(
             }
         }
     }
+
+//    fun onLaunchSignInEffectProcessed() {
+//        _effectsFlow.update { it.copy(launchSignInScreen = null) }
+//    }
+
+//    data class Effects(
+//        val launchSignInScreen: Unit? = null
+//    )
 }
 
 data class State(
